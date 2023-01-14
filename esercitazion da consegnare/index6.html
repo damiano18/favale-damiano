@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript" src="static/js/p5/p5.js"></script>
+<script type="text/javascript">
+	
+	let l = 40
+let x = 0
+let y = 0
+let width = 400
+
+let lColor = false
+function setup() {
+  createCanvas(width, width);
+}
+
+function draw() {
+  if(lColor == true) {
+    fill("white")
+    lColor = false
+  } else if (lColor == false) {
+    fill("black")
+    lColor = true
+  }
+  noStroke()
+  square(x, y, l)
+ 
+
+ 
+  x = x + l
+ 
+  if(x>=width) {
+    y = y + l
+    x = 0
+    lColor = !lColor
+  }
+}
+
+</script>
+</body>
+</html>
