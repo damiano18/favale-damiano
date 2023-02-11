@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>okk</title>
+</head>
+<body>
+
+<div class="trisGrid">
+		<div class="row">
+			<div class="col">
+				<a href="#" class="gridBtn player1"></a>
+			</div>
+			<div class="col">
+				<a href="#" class="gridBtn player2"></a>
+			</div>
+			<div class="col">
+				<a href="#" class="gridBtn"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<a href="#" class="gridBtn"></a>
+			</div>
+			<div class="col">
+				<a href="#" class="gridBtn"></a>
+			</div>
+			<div class="col">
+				<a href="#" class="gridBtn"></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<a href="#" class="gridBtn"></a>
+			</div>
+			<div class="col">
+				<a href="#" class="gridBtn"></a>
+			</div>
+			<div class="col">
+				<a href="#" class="gridBtn"></a>
+			</div>
+		</div>
+	</div>
+
+	<style type="text/css">
+
+		.player1{
+  background-color: purple;
+}
+
+.player2{
+  background-color: blue;
+}
+
+.trisGrid{
+			display: flex;
+			flex-direction: column;
+		}
+
+		.row{
+			display: flex;
+		}
+
+		.col{
+			width: 40px;
+			height: 40px;
+			background: yellow;
+			border: 1px solid black;
+		}
+
+		.gridBtn{
+			display: block;
+			width: 40px;
+			height: 40px;
+		}
+
+	</style>
+	<script type="text/javascript">
+
+		let links = document.querySelectorAll(".gridBtn"),
+			currentPlayer = 1,
+    cellIsOccupied = true
+
+
+		for(let i = 0; i < links.length; i++){
+			let link = links[i]
+			link.addEventListener("click", function(e){
+				e.preventDefault()
+        cellIsOccupied = e.currentTarget.classList.contains("player2") || e.currentTarget.classList.contains("player1")	;			
+        
+        console.log(cellIsOccupied)
+				if(cellIsOccupied === false){
+					// Mettiamo una X o un O a seconda del turno del player
+					// Cambiamo il currentPlayer -> currentPlayer = 2
+          e.currentTarget.classList.toggle("player"+currentPlayer)
+          if(currentPlayer === 1){
+            currentPlayer = 2
+          }else{
+            currentPlayer = 1
+          }
+        }
+			})
+		}
+		
+	</script>
+</body>
+</html>
