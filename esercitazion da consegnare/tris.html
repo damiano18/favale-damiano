@@ -6,6 +6,36 @@
 	<title></title>
 </head>
 <body>
+<div class="sfondo">
+	<img src="https://www.ps4wallpapers.com/wp-content/uploads/2018/08/PS4Wallpapers.com_5b89ba23b81a0_resident-evil-2-leon-kennedy-3840x2160-1056x594.jpg">
+	
+</div>
+	<style type="text/css">
+		 
+		*{
+			margin:auto;
+			box-sizing: border-box;
+
+		}
+
+
+		body{
+			min-height: 100vh;
+			
+		}
+
+		.sfondo{
+			background-image: src="https://www.ps4wallpapers.com/wp-content/uploads/2018/08/PS4Wallpapers.com_5b89ba23b81a0_resident-evil-2-leon-kennedy-3840x2160-1056x594.jpg";
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			min-height:100vh;
+			width: 100vw;
+		}
+
+	</style>
+
+
 	<div class="col">
 		<a href="gridBtn player 1"></a>
 		
@@ -27,6 +57,25 @@
 	</div>
 <script type="text/javascript"> src="static/js/p5/p5.js"</script>
 <script type="text/javascript">
+	let links = document.querySelectorAll(".gridBtn"),
+			currentPlayer = 1,
+    cellIsOccupied = true
+
+
+		for(let i = 0; i < links.length; i++){
+			let link = links[i]
+			link.addEventListener("click", function(e){
+				e.preventDefault()
+				
+        cellIsOccupied = e.currentTarget.classList.contains("player2") || e.currentTarget.classList.contains("player1")	;			
+        
+        console.log(cellIsOccupied)
+				if(!cellIsOccupied){
+        e.currentTarget.classList.toggle(`player${currentPlayer}`)
+      currentPlayer = currentPlayer === 1 ? 2 : 1
+        }
+			})
+		}
  
 </script>
 </body>
